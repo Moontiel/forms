@@ -1,0 +1,294 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header,
+footer {
+  text-align: center;
+  background-color: tomato;
+  color: #fff;
+  height: 80px;
+}
+
+/*
+	section_form: defnimos un espaciado para separar esta seccion
+	de ootras
+*/
+.section_form {
+  padding: 50px 0;
+  /*
+		container_form: definimos margin: 0 auto para centrar este
+		contenedor horizontalmente
+	*/
+}
+
+.section_form .container_form {
+  margin: 0 auto;
+  /*
+			@media 899px <== : definimos un width en esta medida
+		*/
+  /*
+			@media 900px ==> : definimos un width en esta medida
+		*/
+  /*
+			tag-h3
+		*/
+  /*
+			flexbox_form
+		*/
+}
+
+@media (max-width: 899px) {
+  .section_form .container_form {
+    width: 90%;
+  }
+}
+
+@media (min-width: 900px) {
+  .section_form .container_form {
+    width: 80%;
+  }
+}
+
+.section_form .container_form h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 26px;
+}
+
+.section_form .container_form .flexbox_form {
+  /*
+				@media 900px ==> : definimos flexbox y sus propiedades
+				justify-content y align-items para centrar de manera vertical
+				y horizontal los elementos que este contiene
+			*/
+  /*
+				box_card_form
+			*/
+  /*
+				form
+			*/
+}
+
+@media (min-width: 900px) {
+  .section_form .container_form .flexbox_form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.section_form .container_form .flexbox_form .box_card_form {
+  color: #333;
+  /*
+					@media 899px <== : definimos un margen en la parte
+					inferior en esta medida
+				*/
+  /*
+					@media 900px ==> : definimos un width en esta medida
+				*/
+  /*
+					tag-h2
+				*/
+  /*
+					tag-p
+				*/
+}
+
+@media (max-width: 899px) {
+  .section_form .container_form .flexbox_form .box_card_form {
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 900px) {
+  .section_form .container_form .flexbox_form .box_card_form {
+    width: 40%;
+  }
+}
+
+.section_form .container_form .flexbox_form .box_card_form h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section_form .container_form .flexbox_form .box_card_form p {
+  line-height: 1.5;
+}
+
+.section_form .container_form .flexbox_form form {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 30px 50px;
+  /*
+					@media 900px ==> : definimos un width en esta medida
+				*/
+  /*
+					content_inputs
+				*/
+  /*
+					box_btn
+				*/
+  /*
+					box_socials_media: definimos flexbox y sus propeidades
+					justify-content y align-items para centrar los elementos
+					que este contiene de manera vertical y horizontal
+				*/
+}
+
+@media (min-width: 900px) {
+  .section_form .container_form .flexbox_form form {
+    width: 40%;
+  }
+}
+
+.section_form .container_form .flexbox_form form .content_inputs {
+  /*
+						box_inputs
+					*/
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs {
+  /*
+							seleccionamos el 2 elemento con clase box_inputs
+							y generamos un margen
+						*/
+  /*
+							input: implementamos outline y border: none para
+							eliminar los bordes que genera el navegador en los
+							inputs, finalmente definimos width y height para
+							darle tamaño
+						*/
+  /*
+							border_animated: definimos display: block para que el borde animado
+							sea visible y position relative por que en el uso del 
+							pseudo elemento :before implementamos position: absolute
+						*/
+  /*
+							box_errors: definimos display: none para que estos
+							desaparezcan del maquetado
+						*/
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs:nth-child(2) {
+  margin: 20px 0;
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  height: 36px;
+  width: 100%;
+  /*
+								ccuando el input tiene el el pseudo elemento :focus, relacionamos
+								a span:before y definimos su width: 100% esto genera el efecto
+								de borde animado
+							*/
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs input:focus ~ .border_animated:before {
+  background-color: dodgerblue;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(30, 143, 255, 0.438);
+          box-shadow: 0 2px 8px 0 rgba(30, 143, 255, 0.438);
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs .border_animated {
+  display: block;
+  position: relative;
+  /*
+								:before: definios position: absolute con sus propiedades
+								bottom y left para posicionar el borde animado en la parte 
+								inferior de la tag-span, definimos un width: 0% que pasara
+								a 100% cuando el input tenga el :focus y un height para darle
+								altura alborde
+							*/
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs .border_animated:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  -webkit-transition: width 0.5s ease-in;
+  transition: width 0.5s ease-in;
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs .box_errors {
+  color: #fff;
+  background-color: red;
+  font-size: 1.2rem;
+  letter-spacing: 1;
+  width: inherit;
+  padding: 8px;
+  display: none;
+  -webkit-transition: display 0.5s ease;
+  transition: display 0.5s ease;
+  /*
+								js_show_error: clase añadida con javascript que muestra
+								la caja box_error con la propeidad display: block
+							*/
+}
+
+.section_form .container_form .flexbox_form form .content_inputs .box_inputs .box_errors.js_show_error {
+  display: block;
+}
+
+.section_form .container_form .flexbox_form form .box_btn {
+  text-align: center;
+  /*
+						tag-button: implementamos outline y border: none para
+						eliminar los bordes que genera el navegador en los
+						buttons, finalmente definimos width y height para
+						darle tamaño
+					*/
+}
+
+.section_form .container_form .flexbox_form form .box_btn button {
+  outline: none;
+  border: none;
+  background-color: dodgerblue;
+  color: #fff;
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+  margin: 30px 0;
+  cursor: pointer;
+}
+
+.section_form .container_form .flexbox_form form .box_socials_media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*
+						tag-svg
+					*/
+}
+
+.section_form .container_form .flexbox_form form .box_socials_media svg {
+  fill: #ccc;
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+}
+/*# sourceMappingURL=style.css.map */

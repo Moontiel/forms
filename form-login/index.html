@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>Form login</title>
+		<link rel="stylesheet" href="./sass/style.css" />
+	</head>
+
+	<body>
+		<header>header</header>
+
+		<!--  
+			section_form: contnedor de la seccion
+		-->
+		<div class="section_form">
+			<!--  
+				container_form: contnedor definido para manejar
+				el responsive de la seccion
+			-->
+			<div class="container_form">
+				<!--  
+					flexbox_form: contnedor definido para implementar
+					flexbox o grid en la seccion
+				-->
+				<div class="flexbox_form">
+					<!--  
+						tag-form: contenedor de 1 tag-h2, content_inputs, 
+						box_condition y box_btn
+					-->
+					<form novalidate autocomplete="off">
+						<!--  
+							tag-h2: en esta definimos el titulo del formulario
+						-->
+						<h2>!Formulario¡</h2>
+
+						<!--  
+							content_inputs: contenedor de 3 box_inputs
+						-->
+						<div class="content_inputs">
+							<!--  
+								box_inputs: contenedor de 1 tag-input
+							-->
+							<div class="box_inputs">
+								<!--  
+									tag-input: en esta definimos el campo del 
+									formulario
+								-->
+								<input
+									type="text"
+									name="name"
+									placeholder="Ingrese un usuario"
+								/>
+							</div>
+
+							<div class="box_inputs">
+								<input
+									type="email"
+									name="email"
+									placeholder="Ingrese un email"
+								/>
+							</div>
+
+							<div class="box_inputs">
+								<input
+									type="password"
+									name="password"
+									placeholder="Ingrese su contraseña"
+								/>
+							</div>
+						</div>
+
+						<!--  
+							box_conditions: contenedor de 1 tag-input y
+							1 tag-a
+						-->
+						<div class="box_conditions">
+							<!--  
+								tag-input: en esta definimos un checkbox de 
+								seleccion
+							-->
+							<input type="checkbox" />
+
+							<!--  
+								tag-a: en esta establecemos un enlace para
+								recuperar la contraseña
+							-->
+							<a href="#">Olvido su contraseña?</a>
+						</div>
+
+						<!--  
+							box_btn: contenedor de 1 tag-input
+						-->
+						<div class="box_btn">
+							<!--  
+								tag-input: en este definimos el boton que envia
+								los datos del formulario
+							-->
+							<input type="submit" value="Send Form" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<footer>footer</footer>
+	</body>
+</html>

@@ -1,0 +1,261 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header,
+footer {
+	text-align: center;
+	background-color: tomato;
+	color: #fff;
+	height: 80px;
+}
+
+/*
+	section_form: defnimos un espaciado para separar esta seccion
+	de ootras
+*/
+.section_form {
+	padding: 50px 0;
+
+	/*
+		container_form: definimos margin: 0 auto para centrar este
+		contenedor horizontalmente
+	*/
+	.container_form {
+		margin: 0 auto;
+
+		/*
+			@media 899px <== : definimos un width en esta medida
+		*/
+		@media (max-width: 899px) {
+			width: 90%;
+		}
+
+		/*
+			@media 900px ==> : definimos un width en esta medida
+		*/
+		@media (min-width: 900px) {
+			width: 80%;
+		}
+
+		/*
+			tag-h3
+		*/
+		h3 {
+			text-align: center;
+			color: #333;
+			margin-bottom: 26px;
+		}
+
+		/*
+			flexbox_form
+		*/
+		.flexbox_form {
+			/*
+				@media 900px ==> : definimos flexbox y sus propiedades
+				justify-content y align-items para centrar de manera vertical
+				y horizontal los elementos que este contiene
+			*/
+			@media (min-width: 900px) {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+
+			/*
+				box_card_form
+			*/
+			.box_card_form {
+				color: #333;
+
+				/*
+					@media 899px <== : definimos un margen en la parte
+					inferior en esta medida
+				*/
+				@media (max-width: 899px) {
+					margin-bottom: 25px;
+				}
+
+				/*
+					@media 900px ==> : definimos un width en esta medida
+				*/
+				@media (min-width: 900px) {
+					width: 40%;
+				}
+
+				/*
+					tag-h2
+				*/
+				h2 {
+					text-align: center;
+					margin-bottom: 16px;
+				}
+
+				/*
+					tag-p
+				*/
+				p {
+					line-height: 1.5;
+				}
+			}
+
+			/*
+				form
+			*/
+			form {
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				padding: 30px 50px;
+
+				/*
+					@media 900px ==> : definimos un width en esta medida
+				*/
+				@media (min-width: 900px) {
+					width: 40%;
+				}
+
+				/*
+					content_inputs
+				*/
+				.content_inputs {
+					/*
+						box_inputs
+					*/
+					.box_inputs {
+						/*
+							seleccionamos el 2 elemento con clase box_inputs
+							y generamos un margen
+						*/
+						&:nth-child(2) {
+							margin: 20px 0;
+						}
+
+						/*
+							input: implementamos outline y border: none para
+							eliminar los bordes que genera el navegador en los
+							inputs, finalmente definimos width y height para
+							darle tamaño
+						*/
+						input {
+							outline: none;
+							border: none;
+							border-bottom: 1px solid #ddd;
+							color: #333;
+							height: 36px;
+							width: 100%;
+
+							/*
+								ccuando el input tiene el el pseudo elemento :focus, relacionamos
+								a span:before y definimos su width: 100% esto genera el efecto
+								de borde animado
+							*/
+							&:focus ~ .border_animated:before {
+								background-color: dodgerblue;
+								width: 100%;
+								box-shadow: 0 2px 8px 0 rgba(30, 143, 255, 0.438);
+							}
+						}
+
+						/*
+							border_animated: definimos display: block para que el borde animado
+							sea visible y position relative por que en el uso del 
+							pseudo elemento :before implementamos position: absolute
+						*/
+						.border_animated {
+							display: block;
+							position: relative;
+
+							/*
+								:before: definios position: absolute con sus propiedades
+								bottom y left para posicionar el borde animado en la parte 
+								inferior de la tag-span, definimos un width: 0% que pasara
+								a 100% cuando el input tenga el :focus y un height para darle
+								altura alborde
+							*/
+							&:before {
+								content: '';
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								width: 0%;
+								height: 2px;
+								transition: width 0.5s ease-in;
+							}
+						}
+
+						/*
+							box_errors: definimos display: none para que estos
+							desaparezcan del maquetado
+						*/
+						.box_errors {
+							color: #fff;
+							background-color: red;
+							font-size: 1.2rem;
+							letter-spacing: 1;
+							width: inherit;
+							padding: 8px;
+							display: none;
+							transition: display 0.5s ease;
+
+							/*
+								js_show_error: clase añadida con javascript que muestra
+								la caja box_error con la propeidad display: block
+							*/
+							&.js_show_error {
+								display: block;
+							}
+						}
+					}
+				}
+
+				/*
+					box_btn
+				*/
+				.box_btn {
+					text-align: center;
+
+					/*
+						tag-button: implementamos outline y border: none para
+						eliminar los bordes que genera el navegador en los
+						buttons, finalmente definimos width y height para
+						darle tamaño
+					*/
+					button {
+						outline: none;
+						border: none;
+						background-color: dodgerblue;
+						color: #fff;
+						border-radius: 5px;
+						width: 150px;
+						height: 40px;
+						margin: 30px 0;
+						cursor: pointer;
+					}
+				}
+
+				/*
+					box_socials_media: definimos flexbox y sus propeidades
+					justify-content y align-items para centrar los elementos
+					que este contiene de manera vertical y horizontal
+				*/
+				.box_socials_media {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					/*
+						tag-svg
+					*/
+					svg {
+						fill: #ccc;
+						width: 32px;
+						height: 32px;
+						margin: 0 8px;
+					}
+				}
+			}
+		}
+	}
+}

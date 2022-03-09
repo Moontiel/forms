@@ -1,0 +1,126 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header,
+footer {
+	text-align: center;
+	background-color: tomato;
+	color: #fff;
+	height: 80px;
+}
+
+/*
+	section_form: defnimos un espaciado para separar esta seccion
+	de ootras
+*/
+.section_form {
+	padding: 50px 0;
+
+	/*
+		container_form
+	*/
+	.container_form {
+		/*
+			flexbox_form
+		*/
+		.flexbox_form {
+			/*
+				form: definimos un max-widht para que sea el ancho 
+				minimo del formulario
+			*/
+			form {
+				max-width: 280px;
+				margin: 0 auto;
+				padding: 20px;
+				box-shadow: 0 3px 10px 0 #ccc;
+
+				/*
+					tag-h2
+				*/
+				h2 {
+					color: #333;
+					text-align: center;
+					margin-bottom: 20px;
+				}
+
+				/*
+					content_inputs
+				*/
+				.content_inputs {
+					/*
+						box_inputs
+					*/
+					.box_inputs {
+						/*
+							seleccionamos el 2 elemento con clase box_inputs
+							y generamos un margen
+						*/
+						&:nth-child(2) {
+							margin: 12px 0;
+						}
+
+						/*
+							input: implementamos outline: none para eliminar
+							los bordes que genera el navegador en los inputs,
+							finalmente definimos width y height para darle tamaño
+						*/
+						input {
+							outline: none;
+							border: 1px solid #ccc;
+							color: #333;
+							width: 100%;
+							height: 36px;
+							padding: 0 8px;
+
+							/*
+								cuando el input tiene el el pseudo elemento :focus 
+								agregamos un borde y una sombra
+							*/
+							&:focus {
+								border: 1px solid dodgerblue;
+								box-shadow: 0 1px 2px 0 rgba(79, 160, 241, 0.575);
+							}
+						}
+					}
+				}
+
+				/*
+					box_conditions: definimos flexbox y su propeidad
+					justify-content para generar espaciado entre los
+					elementos que este contiene
+				*/
+				.box_conditions {
+					display: flex;
+					justify-content: space-between;
+					margin: 16px 0 26px;
+				}
+
+				/*
+					box_btn
+				*/
+				.box_btn {
+					text-align: center;
+
+					/*
+						tag-input: implementamos outline y border: none para
+						eliminar los bordes que genera el navegador en los
+						inputs, finalmente definimos width y height para
+						darle tamaño
+					*/
+					input {
+						outline: none;
+						border: none;
+						background-color: dodgerblue;
+						color: #fff;
+						width: 140px;
+						height: 35px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}
