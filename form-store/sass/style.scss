@@ -14,7 +14,7 @@ footer {
 
 /*
 	section_form: defnimos un espaciado para separar esta seccion
-	de ootras
+	de otras
 */
 .section_form {
 	padding: 50px 0;
@@ -133,7 +133,7 @@ footer {
 						}
 
 						/*
-							input: implementamos outline y border: none para
+							tag-input: implementamos outline y border: none para
 							eliminar los bordes que genera el navegador en los
 							inputs, finalmente definimos width y height para
 							darle tamaño
@@ -143,11 +143,43 @@ footer {
 							border: none;
 							border-bottom: 1px solid #ddd;
 							color: #333;
+							font-family: Arial, Helvetica, sans-serif;
 							height: 36px;
 							width: 100%;
 
 							/*
-								ccuando el input tiene el el pseudo elemento :focus, relacionamos
+								cuando el input tiene el el pseudo elemento :focus, relacionamos
+								a span:before y definimos su width: 100% esto genera el efecto
+								de borde animado
+							*/
+							&:focus ~ .border_animated:before {
+								background-color: dodgerblue;
+								width: 100%;
+								box-shadow: 0 2px 8px 0 rgba(30, 143, 255, 0.438);
+							}
+						}
+
+						/*
+							tag-textarea: implementamos vertical-align para remover
+							un espaciado que henera el navegador en la tag-textarea
+							outline y border: none para eliminar los bordes de los
+							inputs, finalmente definimos las propiedades min-width 
+							max-width, min-height y max-height para darle tamaño
+						*/
+						textarea {
+							vertical-align: top;
+							outline: none;
+							border: none;
+							border-bottom: 1px solid #ddd;
+							color: #333;
+							font-family: Arial, Helvetica, sans-serif;
+							min-width: 100%;
+							max-width: 100%;
+							min-height: 100px;
+							max-height: 100px;
+
+							/*
+								cuando el textarea tiene el el pseudo elemento :focus, relacionamos
 								a span:before y definimos su width: 100% esto genera el efecto
 								de borde animado
 							*/

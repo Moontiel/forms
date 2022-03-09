@@ -6,20 +6,18 @@ let $inputs = document.querySelectorAll('input');
 
 /* 
     $err_name: almacena el elementos html con ID error_name
-    $#error_email: almacena el elementos html con ID #error_email
-    $error_post: almacena el elementos html con ID error_post
+    $error_email: almacena el elementos html con ID #error_email
 */
 let $err_name = document.querySelector('#error_name'),
-	$err_email = document.querySelector('#error_email'),
-	$err_post = document.querySelector('#error_post');
+	$err_email = document.querySelector('#error_email');
+	
 
 /*
-	almacenamos expresiones regulares en avriables que luego implementaremos
-	para validar cada input
+	almacenamos en avriables expresiones regulares que luego implementaremos
+	para validar los datos ingresados en los inputs
 */
 let exp_name = /^[a-zA-Z\s]{4,16}$/,
-	exp_email = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,3}$/,
-	exp_post = /^[a-zA-Z0-9_.+-À-ÿ\s]{10,100}$/;
+	exp_email = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,3}$/;
 
 /* 
     hacemos un recorrido forEach en la variable $inputs
@@ -51,42 +49,89 @@ $inputs.forEach((input) => {
 				case: este recibe como valor el mismo valor definido en el atributo
 				name="" de los inputs
 			*/
-			case 'name':
-				{
-					/* 
-						definimos un condicional al cual pasamos el metodo .test() que	
-					    recibe la variable targetValue y los compara con las EXPRESIONES REGULARES, 
-						
-				
-						si el valor ingresado por el usuario no cumple la condicion de las
-						expresiones regulares añade a $err_name la clase js_show_error
-						definida en la hoja de estilos
+			case 'name': {
+				/* 
+					definimos un condicional al cual pasamos el metodo .test() que	
+					recibe la variable targetValue y compara los datos ingresados 
+					con las EXPRESIONES REGULARES, 
+					
+			
+					si los valores ingresados por el usuario no cumplen la condicion de las
+					expresiones regulares añade a $err_name la clase js_show_error
+					definida en la hoja de estilos
 
-						de lo contrario la remueve
-					*/
-					!exp_name.test(targetValue)
-						? $err_name.classList.add('js_show_error')
-						: $err_name.classList.remove('js_show_error');
-				}
-				break;
+					de lo contrario la remueve
+				*/
+				!exp_name.test(targetValue)
+					? $err_name.classList.add('js_show_error')
+					: $err_name.classList.remove('js_show_error');
+			}
+			break;
 
-			case 'email':
-				{
-					!exp_email.test(targetValue)
-						? $err_email.classList.add('js_show_error')
-						: $err_email.classList.remove('js_show_error');
-				}
-				break;
-
-			case 'post':
-				{
-					!exp_post.test(targetValue)
-						? $err_post.classList.add('js_show_error')
-						: $err_post.classList.remove('js_show_error');
-				}
-				break;
+			case 'email': {
+				!exp_email.test(targetValue)
+					? $err_email.classList.add('js_show_error')
+					: $err_email.classList.remove('js_show_error');
+			}
+			break;
 		}
 	});
+});
+
+
+/* 
+    $textArea: almacena el elemento html con textarea
+*/
+let $textArea = document.querySelector('textarea');
+
+/* 
+    $error_post: almacena el elementos html con ID error_post
+*/
+let $err_post = document.querySelector('#error_post');
+
+/*
+	almacenamos en una variable una expresion regular que luego implementaremos
+	para validar los datos ingresados al textarea
+*/
+let exp_post = /^[a-zA-Z0-9_.+-À-ÿ\s]{10,100}$/;
+
+/* 
+	generamos un evento keyup en $textarea y declaramos una 
+	funcion a la que pasamos un EVENT (e) como parametro
+*/
+$textArea.addEventListener('keyup', function (e) {
+	/* 
+		targetValueTextarea: almacena los datos ingresados por el usuario en el 
+		campo textarea
+	*/
+	let targetValueTextarea = e.target.value;
+
+	/* 
+		targetNameTextarea: almacena a travez del atributo name="" el textarea 
+		seleccioando por el usuario
+	*/
+	let targetNameTextarea = e.target.name;
+
+	/* 
+		definimos un condicional para validar que el campo seleccionado sea post
+	*/
+	if (targetNameTextarea === "post") {
+		/* 
+			definimos un condicional al cual pasamos el metodo .test() que	
+			recibe la variable targetValueTextarea y compara los datos ingresados
+			con las EXPRESIONES REGULARES, 
+			
+	
+			si los valores ingresados por el usuario no cumplen la condicion de las
+			expresiones regulares añade a $err_name la clase js_show_error
+			definida en la hoja de estilos
+
+			de lo contrario la remueve
+		*/
+		!exp_post.test(targetValueTextarea)
+					? $err_post.classList.add('js_show_error')
+					: $err_post.classList.remove('js_show_error');
+	}
 });
 
 // --------------------- END CODE -------------------- //
